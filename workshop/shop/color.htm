@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<META NAME="GENERATOR" Content="Microsoft FrontPage 4.0">
+<title>≈风行水上 自然成纹≈ Web Safe Color Testing -- By Wind.on.water/Sea.Sky.Heart</title>
+<style>
+p{margin-top:2pt;margin-bottom:2pt;text-indent:2em;line-height:19pt}
+</style>
+<script language="JavaScript" src="script/color.js">
+</script>
+</HEAD>
+<BODY id="body" style="background-color:rgb(255,255,255);color:rgb(0,0,0)">
+
+<P align="center" style="font-size:19pt;color:orange"><b>Web Safe Color Testing</b></P>
+<br><br>
+
+
+
+<table width="754" cellspacing="0" cellpadding="0">
+<tr><td colspan="2" width="746">
+<APPLET code=color.class height=148 id=Applet2 name=Applet1 style="HEIGHT: 148px; LEFT: 0px; TOP: 0px; WIDTH: 340px;margin-right:28" width=340 align="left">
+</APPLET>
+<p>
+多种色彩的搭配使得 Web 页面漂亮非常，于是很难想象早期 Web 那只有黑白两色的单调面孔。   
+</p>   
+<p>   
+网页的色彩是 RGB 格式的，即用三个分别代表红色(Red)、绿色(Green)、蓝色(Blue)的色彩深度的数值来表示，   
+数值的范围在 0 - 255(十进制) 或 00 - FF(十六进制) 之间。   
+</p>   
+</td></tr>   
+<tr>   
+<td width="512">
+<p>但并不是每种可能的数值组合所代表的颜色都非常适合在网页上使用，因为这里边有着所谓的 Web 安全色的问题。   
+这些安全色可以保证在不同的系统上都正常显示，而其他色彩则不能保证。因此如果色彩运用不当，就会影响网页整体色彩搭配的协调。   
+</p>
+</td>   
+<td width="228" align="center" style="border:2 solid">
+<span align="right">   
+<form name="colorform">   
+背景色:<input type="text" name="backcolor" value="#123456" title="十六进制 RGB 格式"><br>   
+前景色:<input type="text" name="forecolor" value="#abcdef" title="十六进制 RGB 格式"><br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="change" value="Change" onClick="changeColor()">&nbsp;&nbsp;<input type="reset" value="Clear "> <br>
+演&nbsp;&nbsp;示:<input name="where" type="radio" checked value="back">Back&nbsp;<input name="where" type="radio" value="fore" onClick="obj=0">Fore <input type="button" name="auto" value=" Go " onClick="clicktag=true;autochange()">  
+ 
+</form>  
+</span>  
+</td></tr>  
+<tr>  
+<td colspan="2" width="746">  
+<p>  
+其实这里边是有一个原则可以遵循的,即 51 原则：从0开始，以51为单位递增作为每种原色的数值，这样组合出来的颜色，可以放心使用(这里用的是十进制)。
+这里的 Applet 即根据这个原则显示不同的安全颜色。而且可以比较背景色和前景色的搭配情况。   
+</P></td>   
+</tr>   
+</table>   
+</BODY>   
+</HTML>   

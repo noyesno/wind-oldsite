@@ -1,0 +1,7 @@
+[28-Sep-2001 19:46:18] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 8
+[28-Sep-2001 19:48:47] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=18232332","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 8
+[28-Sep-2001 19:50:54] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=18232332","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 9
+[28-Sep-2001 19:51:28] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=21064693","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 9
+[28-Sep-2001 19:51:53] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=18232332","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 9
+[28-Sep-2001 20:07:32] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=18232332","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 9
+[28-Sep-2001 20:09:34] PHP Warning:  fopen("http://search.tencent.com/cgi-bin/friend/user_show_info?ln=18232332","r") - Bad file descriptor in /z2/seaskyheart/public_html/workshop/shop/oicq.php on line 10
