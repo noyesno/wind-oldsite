@@ -1,0 +1,98 @@
+// 标题链接变化
+function change_link()
+{
+	 var sobj=window.event.srcElement;
+     sobj.className="mouse_on";
+ }
+
+function restore_link()
+ {
+     var sobj=window.event.srcElement;
+     sobj.className="mouse_out";
+ }
+
+ function link_show_hide()
+ {
+	 if (mainlink.style.visibility=="hidden") 
+	 {
+		 mainlink.style.visibility="visible";
+		 toolList.innerHTML=mytool.innerHTML;
+	 }
+	 else 
+	 {
+		 mainlink.style.visibility="hidden";
+		 toolList.innerHTML="";
+	 }
+ }
+
+ function screen_cls()
+ {
+	 mainlink.style.visibility="hidden";
+	 musicList.innerHTML="";
+	 musicText.innerHTML="";
+	 linkList.innerHTML="";
+	 toolList.innerHTML="";
+ }
+ function music_switch()
+ {
+	 if(bgs.src=="") bgs.src="public/midi/righthrw.mid";
+	 else bgs.src="";
+ }
+// 背景音乐
+var load_flag;
+var load_flag_link;
+var scroll_index=0;
+var music_index;
+var link_index;
+ function music_list()
+ {
+	 if (load_flag!="Loading OK!")
+	 {
+		musicList.innerHTML="Loading ...";
+		load_flag=document.applets[0].getScroll('midi.txt',1);
+		musicList.innerHTML=load_flag;
+		if(load_flag=="Loading OK!") music_index=scroll_index++;
+	 }
+	 if(load_flag=="Loading OK!")
+	 {
+		show_scroll(0,1);
+	 }
+	
+	link_show_hide(); 
+ }
+ function link_list()
+ {
+	 if (load_flag_link!="Loading OK!")
+	 {
+		linkList.innerHTML="Loading ...";
+		load_flag_link=document.applets[0].getScroll('link.txt',2);
+		linkList.innerHTML=load_flag;
+		if(load_flag_link=="Loading OK!") link_index=scroll_index++;
+	 }
+	 if(load_flag_link=="Loading OK!")
+	 {
+		 show_scroll(1,1);
+	 }
+
+	link_show_hide(); 
+ }
+
+ function show_scroll(obj_div,direction)
+ {
+	 if(obj_div==0)
+	 musicList.innerHTML="<input type='button' value='      ∧      ' onClick='show_scroll(0,1)' "+"style='background-color:black;color:yellow;border:1 double red;border-width:1 0 0 0'>"+document.applets[0].showScroll(music_index,8,4,direction)+"<input type='button' value='      ∨      ' onClick='show_scroll(0,-1)' "+"style='background-color:black;color:yellow;border:1 double red;border-width:0 0 1 0'>";
+	 else if(obj_div==1)
+		 linkList.innerHTML="<input type='button' value='       ∧       ' onClick='show_scroll(1,1)' "+"style='background-color:black;color:yellow;border:1 double red;border-width:1 0 0 0'><br>"+document.applets[0].showScroll(link_index,6,3,direction)+"<input type='button' value='       ∨       ' onClick='show_scroll(1,-1)' "+"style='background-color:black;color:yellow;border:1 double red;border-width:0 0 1 0'>";
+ }
+
+ function music_play(music_file)
+{	
+	bgs.src="public/midi/"+music_file;
+	musicText.innerHTML="Loading ...";
+	musicText.innerHTML="<marquee direction='up' scrolldelay=150 scrollamount=1 class='musicText'>"+document.applets[0].getData("../source/midi/"+music_file.substring(0,music_file.indexOf("."))+".txt","<br>")+"</marquee>";
+ }
+function initia()
+{
+	mytoolList.innerHTML=mytool.innerHTML;
+}
+ 
