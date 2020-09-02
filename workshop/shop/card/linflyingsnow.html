@@ -1,19 +1,67 @@
 <head>
   <meta charset="utf-8"/>
   <title>=== Wishes for Linflyingsnow ===</title>
+<style>
+#un-mute { display:none }
+.unmute {
+   background-color:#333;
+   display:inline-block;
+}
+.mute {
+   background-color:#333;
+   display:inline-block;
+}
+.unmute img, .mute img {
+   width:32px;
+}
+.unmute img {
+  display: none;
+}
+
+input#un-mute:checked ~ .unmute img {
+  display: initial;
+}
+
+input#un-mute:checked ~ .mute img {
+  display: none;
+}
+aside.play-audio {
+   position:fixed;
+   top:6px;left:6px;
+}
+body {
+  position:relative;
+  max-width:640px;
+  margin:auto;
+}
+.snowflake {
+  POSITION: fixed;
+  z-index: 1;
+  visibility:visible;
+}
+</style>
 </head>
 <body bgcolor="black">
 
-<audio src="music_07.mid" loop="-1" autoplay></audio>
+<audio src="music-07.ogg" loop autoplay allow="autoplay"></audio>
 
-<div id="con2" style="position:absolute; left:71px; top:121px; width:113px; height:299px; z-index:1;font-size:43;font-weight:60;color:white">
+
+<div id="con2" style="position:absolute; left:71px; top:121px; width:113px; height:299px; z-index:1;font-size:43;font-weight:60;color:white;text-align:center">
 新<br>年<br>快<br>乐
+
+  <aside style="margin-top:12px">
+  <input type="checkbox" name="un-mute" id="un-mute">
+      <label for="un-mute" class="unmute">
+          <img src="Mute_Icon.svg" alt="Mute_Icon.svg" title="Mute icon">
+      </label><label for="un-mute" class="mute">
+          <img src="Speaker_Icon.svg" alt="Speaker_Icon.svg" title="Unmute/speaker icon">
+      </label>
+  </aside>
 </div>
 
 
 <div id="con" style="position:absolute; left:465px; top:150px; width:275px;color:white; height:130px;z-index=1; filter:revealTrans(Duration=6,Transition=22)"></div>
-<script language="JavaScript">
-<!--
+<script>
 var turn=0;
 var wishes="There's a lovely girl named Lin<br>She wishes to can be flying snow<br>Fly freely in the sky<br>Go anywhere she likes to<br>And be happy every minute<br>Give u my best wishes" 
 function change1(){
@@ -33,18 +81,15 @@ function change2(){
                }
 function change(){change1();
                   change2();
-                  
         }
 
 onload=change;
-//-->
 </script>
-<SCRIPT LANGUAGE="JavaScript1.2">
-<!-- Original:  Altan (snow@altan.hr) -->
-<!-- Web Site:  http://www.altan.hr/snow -->
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://javascript.internet.com -->
-<!-- Begin
+<script>
+// <!-- Original:  Altan (snow@altan.hr) -->
+// <!-- Web Site:  http://www.altan.hr/snow -->
+// <!-- This script and many more are available free online at -->
+// <!-- The JavaScript Source!! http://javascript.internet.com -->
 var no = 25; // snow number
 var speed = 10; // smaller number moves the snow faster
 var snowflake = "snow.gif";
@@ -54,11 +99,14 @@ var dx, xp, yp;    // coordinate and position variables
 var am, stx, sty;  // amplitude and step variables
 var i, doc_width = 800, doc_height = 600;
 if (ns4up) {
-doc_width = self.innerWidth;
-doc_height = self.innerHeight;
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
 } else if (ie4up) {
-doc_width = document.body.clientWidth;
-doc_height = document.body.clientHeight;
+    doc_width = document.body.clientWidth;
+    doc_height = document.body.clientHeight;
+}else{
+    doc_width = document.body.clientWidth;
+    doc_height = document.body.clientHeight;
 }
 dx = new Array();
 xp = new Array();
@@ -66,82 +114,135 @@ yp = new Array();
 am = new Array();
 stx = new Array();
 sty = new Array();
-for (i = 0; i < no; ++ i) {  
-dx[i] = 0;                        // set coordinate variables
-xp[i] = Math.random()*(doc_width-50);  // set position variables
-yp[i] = Math.random()*doc_height;
-am[i] = Math.random()*20;         // set amplitude variables
-stx[i] = 0.02 + Math.random()/10; // set step variables
-sty[i] = 0.7 + Math.random();     // set step variables
-if (ns4up) {                      // set layers
-if (i == 0) {
-document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
-document.write("top=\"15\" visibility=\"show\"><img src=\"");
-document.write(snowflake + "\" border=\"0\"></layer>");
-} else {
-document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
-document.write("top=\"15\" visibility=\"show\"><img src=\"");
-document.write(snowflake + "\" border=\"0\"></layer>");
-  }
-} else if (ie4up) {
-if (i == 0) {
-document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
-document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
-document.write("visible; TOP: 15px; LEFT: 15px;\"><img src=\"");
-document.write(snowflake + "\" border=\"0\"></div>");
-} else {
-document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
-document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
-document.write("visible; TOP: 15px; LEFT: 15px;\"><img src=\"");
-document.write(snowflake + "\" border=\"0\"></div>");
-      }
-   }
+for (i = 0; i < no; ++ i) {
+    dx[i] = 0;                        // set coordinate variables
+    xp[i] = Math.random()*(doc_width-50);  // set position variables
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;         // set amplitude variables
+    stx[i] = 0.02 + Math.random()/10; // set step variables
+    sty[i] = 0.7 + Math.random();     // set step variables
+    if (ns4up) {                      // set layers
+	if (i == 0) {
+	document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+	document.write("top=\"15\" visibility=\"show\"><img src=\"");
+	document.write(snowflake + "\" border=\"0\"></layer>");
+	} else {
+	document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+	document.write("top=\"15\" visibility=\"show\"><img src=\"");
+	document.write(snowflake + "\" border=\"0\"></layer>");
+	  }
+    } else if (1 || ie4up) {
+	if (i == 0) {
+	    document.write("<div id=\"dot"+ i +"\" class='snowflake' style=\"");
+	    document.write("Z-INDEX: "+ i +";");
+	    document.write("TOP: 15px; LEFT: 15px;\"><img src=\"");
+	    document.write(snowflake + "\" border=\"0\"></div>");
+	} else {
+	    document.write("<div id=\"dot"+ i +"\" class='snowflake' style=\"");
+	    document.write("Z-INDEX: "+ i +";");
+	    document.write("TOP: 15px; LEFT: 15px;\"><img src=\"");
+	    document.write(snowflake + "\" border=\"0\"></div>");
+	}
+    }
 }
 function snowNS() {  // Netscape main animation function
-for (i = 0; i < no; ++ i) {  // iterate for every dot
-yp[i] += sty[i];
-if (yp[i] > doc_height-50) {
-xp[i] = Math.random()*(doc_width-am[i]-30);
-yp[i] = 0;
-stx[i] = 0.02 + Math.random()/10;
-sty[i] = 0.7 + Math.random();
-doc_width = self.innerWidth;
-doc_height = self.innerHeight;
+    for (i = 0; i < no; ++ i) {  // iterate for every dot
+	yp[i] += sty[i];
+	if (yp[i] > doc_height-50) {
+	xp[i] = Math.random()*(doc_width-am[i]-30);
+	yp[i] = 0;
+	stx[i] = 0.02 + Math.random()/10;
+	sty[i] = 0.7 + Math.random();
+	doc_width = self.innerWidth;
+	doc_height = self.innerHeight;
+	}
+	dx[i] += stx[i];
+	document.layers["dot"+i].top = yp[i];
+	document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowNS()", speed);
 }
-dx[i] += stx[i];
-document.layers["dot"+i].top = yp[i];
-document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);
-}
-setTimeout("snowNS()", speed);
-}
+
 function snowIE() {  // IE main animation function
-for (i = 0; i < no; ++ i) {  // iterate for every dot
-yp[i] += sty[i];
-if (yp[i] > doc_height-50) {
-xp[i] = Math.random()*(doc_width-am[i]-30);
-yp[i] = 0;
-stx[i] = 0.02 + Math.random()/10;
-sty[i] = 0.7 + Math.random();
-doc_width = document.body.clientWidth;
-doc_height = document.body.clientHeight;
+    for (i = 0; i < no; ++ i) {  // iterate for every dot
+	yp[i] += sty[i];
+	if (yp[i] > doc_height-50) {
+	xp[i] = Math.random()*(doc_width-am[i]-30);
+	yp[i] = 0;
+	stx[i] = 0.02 + Math.random()/10;
+	sty[i] = 0.7 + Math.random();
+	doc_width = document.body.clientWidth;
+	doc_height = document.body.clientHeight;
+	}
+	dx[i] += stx[i];
+        if(0){
+	    document.all["dot"+i].style.pixelTop = yp[i];
+	    document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);
+        }
+	document.all["dot"+i].style.top = yp[i];
+	document.all["dot"+i].style.left = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowIE()", speed);
 }
-dx[i] += stx[i];
-document.all["dot"+i].style.pixelTop = yp[i];
-document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);
+
+function snow(){
+    for (var i = 0; i < no; ++i) {  // iterate for every dot
+	yp[i] += sty[i];
+	if (yp[i] > doc_height-50) {
+	    xp[i] = Math.random()*(doc_width-am[i]-30);
+	    yp[i] = 0;
+	    stx[i] = 0.02 + Math.random()/10;
+	    sty[i] = 0.7 + Math.random();
+	}
+	dx[i] += stx[i];
+	document.all["dot"+i].style.top  = Math.trunc(yp[i]);
+	document.all["dot"+i].style.left = Math.trunc(xp[i] + am[i]*Math.sin(dx[i]));
+    }
+
+    window.requestAnimationFrame(snow);
 }
-setTimeout("snowIE()", speed);
+
+if (0 && ns4up) {
+  snowNS();
+} else if (0 && ie4up) {
+  snowIE();
+}else{
+  snow();
 }
-if (ns4up) {
-snowNS();
-} else if (ie4up) {
-snowIE();
-}
-// End -->
 </script>
 
 <center>
 <br><br><br><br><br><br><br>
 <img src="girl10.gif" height=300>
 </center>
+<script>
+let audio = document.querySelector("audio");
+
+if(audio.defaultMuted){
+   // alert("Current tab is muted, no background music.");
+}else{
+   document.querySelector("#un-mute").checked = true;
+}
+
+/*
+document.addEventListener('click', function(){
+   document.querySelector("audio").play()
+});
+*/
+
+document.querySelector("#un-mute").onclick = function(){
+   if(this.checked){ // unmute
+     document.querySelector("audio").pause()
+   }else{
+     document.querySelector("audio").play()
+   }
+};
+
+/*
+setTimeout(function(){
+  document.dispatchEvent(new Event('click'));
+}, 3000);
+*/
+</script>
 
 </body>
