@@ -39,6 +39,10 @@ body {
   z-index: 1;
   visibility:visible;
 }
+#wish-newyear {
+   font-family: Microsoft Yahei;
+   font-weight:bold;
+}
 </style>
 </head>
 <body bgcolor="black">
@@ -46,7 +50,7 @@ body {
 <audio src="music-07.ogg" loop autoplay allow="autoplay"></audio>
 
 
-<div id="con2" style="position:absolute; left:71px; top:121px; width:113px; height:299px; z-index:1;font-size:43;font-weight:60;color:white;text-align:center">
+<div id="wish-newyear" style="position:absolute; left:71px; top:121px; width:113px; height:299px; z-index:1;font-size:43;color:white;text-align:center">
 新<br>年<br>快<br>乐
 
   <aside style="margin-top:12px">
@@ -75,6 +79,7 @@ function change1(){
                     setTimeout("change1()",150);
                  }
 function change2(){
+    let con2 = document.getElementById("wish-newyear");
                    if(con2.style.color=="white") con2.style.color="red";
                    else con2.style.color="white";
                    setTimeout("change2()",900);
